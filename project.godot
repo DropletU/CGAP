@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="A Very Cozy Game About Plants"
+run/main_scene="uid://bmrtdgegh8qc6"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
