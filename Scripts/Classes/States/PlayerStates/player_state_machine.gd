@@ -3,7 +3,7 @@ class_name PlayerStateMachine extends Node
 @export var initial_state: PlayerState
 var current_state: PlayerState
 
-func _init(player: Player) -> void:
+func init(player: Player) -> void:
 	for child in get_children():
 		if child is PlayerState:
 			child.player = player

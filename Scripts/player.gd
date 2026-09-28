@@ -5,9 +5,12 @@ class_name Player extends CharacterBody3D
 @export var jump_velocity = 6.0
 var speed_multi = 1.0
 
-@onready var state: PlayerState = $PlayerStateMachine
+@onready var state_machine: PlayerStateMachine = $PlayerStateMachine
 
 @onready var camera = $CameraComponent/Camera3D
+
+func _ready() -> void:
+	state_machine.init(self)
 
 func _physics_process(delta: float) -> void:
 	
