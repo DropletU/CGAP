@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://bfmmklcuqx3hm" path="res://Scripts/camera_spring_arm.gd" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://buqsdphyssa2w" path="res://Scripts/camera_follow.gd" id="3_6t5aa"]
 [ext_resource type="Script" uid="uid://dri86t7o1gtd" path="res://Scripts/Classes/States/PlayerStates/player_state_machine.gd" id="4_vgqql"]
+[ext_resource type="Script" uid="uid://vanm5nyglnkc" path="res://Scripts/States/PlayerStates/grounded_state.gd" id="5_x3wgy"]
+[ext_resource type="Script" uid="uid://b3qmb4yaestww" path="res://Scripts/States/PlayerStates/airborne_state.gd" id="6_3smsa"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bhunq"]
 radius = 0.7
@@ -42,6 +44,13 @@ script = ExtResource("3_6t5aa")
 spring_arm = NodePath("../SpringArm3D/SpringPosition")
 lerp_power = 6.0
 
-[node name="PlayerStateMachine" type="Node" parent="." unique_id=1735854808]
+[node name="PlayerStateMachine" type="Node" parent="." unique_id=1735854808 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_vgqql")
+initial_state = NodePath("Grounded")
 metadata/_custom_type_script = "uid://dri86t7o1gtd"
+
+[node name="Grounded" type="Node" parent="PlayerStateMachine" unique_id=752504595]
+script = ExtResource("5_x3wgy")
+
+[node name="Airborne" type="Node" parent="PlayerStateMachine" unique_id=791800822]
+script = ExtResource("6_3smsa")
