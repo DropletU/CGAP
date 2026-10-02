@@ -19,8 +19,19 @@ debug_color = Color(0, 0.6, 0.69803923, 1)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=372001174]
 mesh = SubResource("PlaneMesh_qr0ht")
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1666097820]
+transform = Transform3D(1, 0, 0, 0, 0.8512081, -0.52482855, 0, 0.52482855, 0.8512081, 0, -26.166739, 92.14759)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1270766760]
+shape = SubResource("BoxShape3D_bhunq")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=354370091]
+mesh = SubResource("PlaneMesh_qr0ht")
+
 [node name="Player" parent="." unique_id=691066388 instance=ExtResource("1_jjgbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2297573, 5.6675563, 1.9769254)
+floor_snap_length = 0.21
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1053325858]
 transform = Transform3D(1, 0, 0, 0, 0.65513694, 0.75551015, 0, -0.75551015, 0.65513694, 0, 0, 0)
