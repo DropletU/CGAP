@@ -33,5 +33,5 @@ func apply_gravity(delta: float):
 	
 
 func apply_jump():
-	velocity.y += jump_velocity.y
+	velocity.y += jump_velocity
 	
