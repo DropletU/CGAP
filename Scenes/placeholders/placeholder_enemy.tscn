@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c54jupd2wmg4p"]
+
+[ext_resource type="Script" uid="uid://rmdxjsfutnab" path="res://Scripts/placeholders/placeholder_enemy.gd" id="1_qtfl5"]
+[ext_resource type="Script" uid="uid://dwa6551d8sscl" path="res://Scripts/Components/health_component.gd" id="2_ibofa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7numd"]
+albedo_color = Color(1, 0.19215687, 0.18039216, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_7numd")
+radius = 0.3076172
+height = 1.1929932
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yf5fn"]
+radius = 0.3071289
+height = 1.1920166
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=779769168]
+script = ExtResource("1_qtfl5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1921067697]
+mesh = SubResource("CapsuleMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1681276956]
+shape = SubResource("CapsuleShape3D_yf5fn")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=807731076]
+script = ExtResource("2_ibofa")
+metadata/_custom_type_script = "uid://dwa6551d8sscl"

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bmrtdgegh8qc6"]
 
 [ext_resource type="PackedScene" uid="uid://bprl617wmocqg" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://c54jupd2wmg4p" path="res://Scenes/placeholders/placeholder_enemy.tscn" id="2_bo1nx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
 size = Vector3(100, 0, 100)
@@ -30,9 +31,12 @@ debug_color = Color(0, 0.6, 0.69803923, 1)
 mesh = SubResource("PlaneMesh_qr0ht")
 
 [node name="Player" parent="." unique_id=691066388 instance=ExtResource("1_jjgbg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2297573, 5.6675563, 1.9769254)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2297573, 5.6675563, 45.42074)
 floor_snap_length = 0.21
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1053325858]
 transform = Transform3D(1, 0, 0, 0, 0.65513694, 0.75551015, 0, -0.75551015, 0.65513694, 0, 0, 0)
 shadow_enabled = true
+
+[node name="CharacterBody3D" parent="." unique_id=779769168 instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6249237, 0.5964966, 38.47927)
