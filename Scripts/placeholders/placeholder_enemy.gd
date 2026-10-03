@@ -1,26 +1,26 @@
 extends CharacterBody3D
 
-@onready var material = get_node("MeshInstance3D").mesh.material
-@onready var collider = $CollisionShape3D
-@onready var original_color = "#ff312e"
+@onready var health_component: HealthComponent = $HealthComponent
 
 @export_range(1, 1000) var hp: int = 100
 
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("test_key"):
-		injured(10)
+func _ready() -> void:
+	health_component.health_changed.connect(_on_health_changed)
+	health_component.max_health_changed.connect(_on_max_health_changed)
 	
 
-func injured(damage: int):
-	hp-=damage
-	if hp == 0:
-		material.albedo_color = Color(1.0, 0.323, 0.272, 1.0)
-		return
+func _on_max_health_changed():
+	pass
 	
-	material.albedo_color = Color("#ffadad")
+
+func _on_health_changed():
+	pass
 	
-	if material.albedo_color != Color(original_color):
-		await get_tree().create_timer(0.15).timeout
-		material.albedo_color = Color(original_color)
+
+func take_damage(damage: int, attacker: Node3D = null):
+	health_component.take_damage(damage, attacker)
+	
+
+func heal(health: int):
+	health_component.heal(health)
 	
