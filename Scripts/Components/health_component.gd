@@ -18,15 +18,14 @@ class_name HealthComponent extends Node
 ## affecting [member _hp] will immediately fail.
 
 
-## The current health. Use [member get_health] to check
+## The current health. Use [method get_health] to check
 ## this value
 @export_range(1, 1000) var _hp: int = 100
-## The current max health. Use [member get_max_health]
+## The current max health. Use [method get_max_health]
 ## to check this value
 @export_range(1, 1000) var _max_hp: int = 100
 
-## Whether the entity is alive or not. Use [method is_alive]
-## to check this value. 
+
 var _alive: = true
 
 ## Emits when damage is taken
