@@ -36,7 +36,7 @@ signal healed(health: int, current_health: int)
 ## Emits when [member _hp] is forcefully set
 signal health_set(health: int)
 ## Emits when [member _max_hp] is forcefully set
-signal max_health_set(max_health: int)
+signal max_health_changed(max_health: int)
 ## Emits when [member _hp] reaches 0
 signal died
 ## Emits any time [member _hp] is changed
@@ -61,7 +61,7 @@ func set_max_health(amount: int) -> void:
 	if new_max_hp == _max_hp:
 		return
 	_max_hp = new_max_hp
-	max_health_set.emit(_max_hp)
+	max_health_changed.emit(_max_hp)
 	
 	if _max_hp<_hp:
 		set_health(_max_hp)
