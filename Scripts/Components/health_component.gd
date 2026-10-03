@@ -1,15 +1,27 @@
 extends Node
 
+## The current health. Use [member get_health] to check
+## this value
 @export_range(1, 1000) var _hp: int = 100
+## The current max health. Use [member get_max_health]
+## to check this value
 @export_range(1, 1000) var _max_hp: int = 100
 
+## Whether the entity is alive or not. Use [method is_alive]
+## to check this value. 
 var _alive: = true
 
+## Emits when damage is taken
 signal damaged(damage: int, current_health: int, attacker: Node3D)
+## Emits when healed
 signal healed(health: int, current_health: int)
+## Emits when [member _hp] is forcefully set
 signal health_set(health: int)
+## Emits when [member _max_hp] is forcefully set
 signal max_health_set(max_health: int)
+## Emits when [member _hp] reaches 0
 signal died
+## Emits any time [member _hp] is changed
 signal health_changed(new_hp: int)
 
 func _ready() -> void:
@@ -24,6 +36,8 @@ func _change_health(new_health: int) -> void:
 	health_changed.emit(new_health)
 	
 
+## Force sets [member _max_hp] to any value greater than
+## or equal to [code]1[/code]
 func set_max_health(amount: int) -> void:
 	var new_max_hp = maxi(1, amount)
 	if new_max_hp == _max_hp:
@@ -35,6 +49,8 @@ func set_max_health(amount: int) -> void:
 		set_health(_max_hp)
 	
 
+## Force sets [member _hp] to any value between
+## [code]0[/code] and [member _max_hp]
 func set_health(amount: int) -> void:
 	if not is_alive():
 		return
@@ -49,6 +65,9 @@ func set_health(amount: int) -> void:
 		_died()
 	
 
+## Damages the entity for [member damage] damage. 
+## If [member damage] is greater than [member _hp],
+## then [member _hp] will be set to [code]0[/code]
 func take_damage(damage: int, attacker: Node3D = null) -> void:
 	if not is_alive():
 		return
@@ -63,6 +82,9 @@ func take_damage(damage: int, attacker: Node3D = null) -> void:
 		_died()
 	
 
+## Heals the entity for [member health] health.
+## If [member health] is greater than [member _max_hp],
+## then [member _hp] will be set to [member _max_hp]
 func heal(health: int) -> void:
 	if not is_alive():
 		return
@@ -84,14 +106,16 @@ func _died() -> void:
 	died.emit()
 	
 
+## Returns [member _hp]
 func get_health() -> int:
 	return _hp
 	
 
+## Returns [member _max_hp]
 func get_max_health() -> int:
 	return _max_hp
 	
 
-
+## Returns [member _alive]
 func is_alive() -> bool:
 	return _alive
