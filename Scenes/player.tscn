@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dri86t7o1gtd" path="res://Scripts/Classes/States/PlayerStates/player_state_machine.gd" id="4_vgqql"]
 [ext_resource type="Script" uid="uid://vanm5nyglnkc" path="res://Scripts/States/PlayerStates/grounded_state.gd" id="5_x3wgy"]
 [ext_resource type="Script" uid="uid://b3qmb4yaestww" path="res://Scripts/States/PlayerStates/airborne_state.gd" id="6_3smsa"]
+[ext_resource type="Script" uid="uid://dwa6551d8sscl" path="res://Scripts/Components/health_component.gd" id="7_3smsa"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bhunq"]
 radius = 0.7
@@ -54,3 +55,7 @@ script = ExtResource("5_x3wgy")
 
 [node name="Airborne" type="Node" parent="PlayerStateMachine" unique_id=791800822]
 script = ExtResource("6_3smsa")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=695360900]
+script = ExtResource("7_3smsa")
+metadata/_custom_type_script = "uid://dwa6551d8sscl"
