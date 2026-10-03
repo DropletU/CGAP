@@ -1,4 +1,22 @@
-extends Node
+class_name HealthComponent extends Node
+## A component that can be added to any [Node] to give
+## it a simple health system. 
+##
+## This class holds a [member _hp] variable and a
+## [member _max_hp] variable. They can be forcefully
+## set through [method set_health] and [method set_max_health]. [br]
+## You can also use [method take_damage] if the [Node]
+## was attacked, and [method heal] is it was healed.
+## Note that [member _hp] will never be below [code]0[/code]
+## or above [member _max_hp]. [br][br]
+## Every time [member _hp] is changed, it will emit a 
+## signal called [signal health_changed], as well
+## as a signal based on where it changed from, like
+## [signal health_set] or [signal damaged]. [br]
+## If [member _hp] ever reaches [code]0[/code], then
+## [signal died] will emit. Once it emits, most methods
+## affecting [member _hp] will immediately fail.
+
 
 ## The current health. Use [member get_health] to check
 ## this value
