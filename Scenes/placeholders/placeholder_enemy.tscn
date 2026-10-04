@@ -26,6 +26,4 @@ shape = SubResource("CapsuleShape3D_yf5fn")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=807731076]
 script = ExtResource("2_ibofa")
-_hp = null
-_max_hp = null
 metadata/_custom_type_script = "uid://dwa6551d8sscl"

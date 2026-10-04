@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bprl617wmocqg" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://c54jupd2wmg4p" path="res://Scenes/placeholders/placeholder_enemy.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://ohxnq3gwsqur" path="res://Scenes/placeholders/environmental_hitbox_component_3d.tscn" id="3_8gbba"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
 size = Vector3(100, 0, 100)
@@ -40,3 +41,6 @@ shadow_enabled = true
 
 [node name="CharacterBody3D" parent="." unique_id=779769168 instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6249237, 0.5964966, 38.47927)
+
+[node name="EnvironmentalHitboxComponent3D" parent="." unique_id=853831547 instance=ExtResource("3_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.241491, 1.0000019, 34.63939)
