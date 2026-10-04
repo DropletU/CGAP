@@ -23,7 +23,6 @@ static func should_handle_shortcut(node: Node) -> bool:
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
-		# TODO: Update on editor settings change.
 		__update_shortcuts_editor()
 	else:
 		__update_shortcuts_standalone()
