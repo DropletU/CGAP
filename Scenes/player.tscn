@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://vanm5nyglnkc" path="res://Scripts/States/PlayerStates/grounded_state.gd" id="5_x3wgy"]
 [ext_resource type="Script" uid="uid://b3qmb4yaestww" path="res://Scripts/States/PlayerStates/airborne_state.gd" id="6_3smsa"]
 [ext_resource type="Script" uid="uid://dwa6551d8sscl" path="res://Scripts/Components/health_component.gd" id="7_3smsa"]
+[ext_resource type="Script" uid="uid://bjok8qjnjb8t" path="res://Scripts/Components/hurtbox_component_3d.gd" id="8_8erm5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bhunq"]
 radius = 0.7
@@ -17,6 +18,10 @@ radius = 0.7
 height = 2.8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6t5aa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_riqys"]
+radius = 0.7504883
+height = 2.9631348
 
 [node name="Player" type="CharacterBody3D" unique_id=691066388]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1920929e-07, 0)
@@ -59,3 +64,13 @@ script = ExtResource("6_3smsa")
 [node name="HealthComponent" type="Node" parent="." unique_id=695360900]
 script = ExtResource("7_3smsa")
 metadata/_custom_type_script = "uid://dwa6551d8sscl"
+
+[node name="HurtboxComponent3D" type="Area3D" parent="." unique_id=1839062836]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("8_8erm5")
+metadata/_custom_type_script = "uid://bjok8qjnjb8t"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent3D" unique_id=143386554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9281006, 0)
+shape = SubResource("CapsuleShape3D_riqys")

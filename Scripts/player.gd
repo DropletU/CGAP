@@ -5,11 +5,16 @@ class_name Player extends CharacterBody3D
 @export var jump_velocity = 6.0
 
 @onready var state_machine: PlayerStateMachine = $PlayerStateMachine
-
+@onready var hurtbox: HurtboxComponent3D = $HurtboxComponent3D
+@onready var health_component: HealthComponent = $HealthComponent
 @onready var camera = $CameraComponent/Camera3D
+
 
 func _ready() -> void:
 	state_machine.init(self)
+	hurtbox.hit_received.connect(_on_hit_received)
+	
+	
 	# floor_snap_length was set to 0.21
 	# In the future, you should update this into
 	# a value that is more suited for the game.
@@ -38,4 +43,8 @@ func apply_gravity(delta: float):
 
 func apply_jump():
 	velocity.y += jump_velocity
+	
+
+func _on_hit_received(damage: int, attacker: Node3D):
+	health_component.take_damage(damage, attacker)
 	
