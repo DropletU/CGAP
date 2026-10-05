@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rmdxjsfutnab" path="res://Scripts/placeholders/placeholder_enemy.gd" id="1_qtfl5"]
 [ext_resource type="Script" uid="uid://dwa6551d8sscl" path="res://Scripts/Components/health_component.gd" id="2_ibofa"]
+[ext_resource type="Script" uid="uid://bjok8qjnjb8t" path="res://Scripts/Components/hurtbox_component_3d.gd" id="3_pghcg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7numd"]
 albedo_color = Color(1, 0.19215687, 0.18039216, 1)
@@ -15,8 +16,10 @@ height = 1.1929932
 radius = 0.3071289
 height = 1.1920166
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=779769168]
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=779769168 node_paths=PackedStringArray("health_component", "hurtbox")]
 script = ExtResource("1_qtfl5")
+health_component = NodePath("HealthComponent")
+hurtbox = NodePath("HurtboxComponent3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1921067697]
 mesh = SubResource("CapsuleMesh_g4v7s")
@@ -27,3 +30,7 @@ shape = SubResource("CapsuleShape3D_yf5fn")
 [node name="HealthComponent" type="Node" parent="." unique_id=807731076]
 script = ExtResource("2_ibofa")
 metadata/_custom_type_script = "uid://dwa6551d8sscl"
+
+[node name="HurtboxComponent3D" type="Area3D" parent="." unique_id=205475183]
+script = ExtResource("3_pghcg")
+metadata/_custom_type_script = "uid://bjok8qjnjb8t"
