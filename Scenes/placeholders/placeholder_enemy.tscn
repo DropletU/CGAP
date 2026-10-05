@@ -16,7 +16,11 @@ height = 1.1929932
 radius = 0.3071289
 height = 1.1920166
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=779769168 node_paths=PackedStringArray("health_component", "hurtbox")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+radius = 0.32666016
+height = 1.2251587
+
+[node name="Placeholder" type="CharacterBody3D" unique_id=779769168 node_paths=PackedStringArray("health_component", "hurtbox")]
 script = ExtResource("1_qtfl5")
 health_component = NodePath("HealthComponent")
 hurtbox = NodePath("HurtboxComponent3D")
@@ -34,3 +38,7 @@ metadata/_custom_type_script = "uid://dwa6551d8sscl"
 [node name="HurtboxComponent3D" type="Area3D" parent="." unique_id=205475183]
 script = ExtResource("3_pghcg")
 metadata/_custom_type_script = "uid://bjok8qjnjb8t"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent3D" unique_id=248669668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0019226074, 0)
+shape = SubResource("CapsuleShape3D_g4v7s")
