@@ -1,12 +1,10 @@
-class_name Player extends CharacterBody3D
+class_name Player extends Entity3D
 
 
 @export var speed = 600.0
 @export var jump_velocity = 6.0
 
 @onready var state_machine: PlayerStateMachine = $PlayerStateMachine
-@onready var hurtbox: HurtboxComponent3D = $HurtboxComponent3D
-@onready var health_component: HealthComponent = $HealthComponent
 @onready var camera = $CameraComponent/Camera3D
 
 

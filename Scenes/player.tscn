@@ -23,9 +23,11 @@ height = 2.8
 radius = 0.7504883
 height = 2.9631348
 
-[node name="Player" type="CharacterBody3D" unique_id=691066388]
+[node name="Player" type="CharacterBody3D" unique_id=691066388 node_paths=PackedStringArray("health_component", "hurtbox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1920929e-07, 0)
 script = ExtResource("1_v0iea")
+health_component = NodePath("HealthComponent")
+hurtbox = NodePath("HurtboxComponent3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1485767773]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92126465, 0)
