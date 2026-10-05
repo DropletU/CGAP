@@ -9,3 +9,11 @@ func _ready() -> void:
 func hit(damage: int, attacker: Node3D = null):
 	hit_received.emit(damage, attacker)
 	
+
+func disable():
+	monitorable = false
+	
+
+func enable():
+	monitorable = true
+	
