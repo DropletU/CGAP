@@ -9,8 +9,8 @@ class_name Player extends Entity3D
 
 
 func _ready() -> void:
+	super._ready()
 	state_machine.init(self)
-	hurtbox.hit_received.connect(_on_hit_received)
 	
 	
 	# floor_snap_length was set to 0.21
@@ -41,8 +41,4 @@ func apply_gravity(delta: float):
 
 func apply_jump():
 	velocity.y += jump_velocity
-	
-
-func _on_hit_received(damage: int, attacker: Node3D):
-	health_component.take_damage(damage, attacker)
 	
