@@ -37,6 +37,7 @@ metadata/_custom_type_script = "uid://dwa6551d8sscl"
 
 [node name="HurtboxComponent3D" type="Area3D" parent="." unique_id=205475183]
 script = ExtResource("3_pghcg")
+hurtbox_layer = 16
 metadata/_custom_type_script = "uid://bjok8qjnjb8t"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent3D" unique_id=248669668]
