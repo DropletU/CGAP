@@ -11,9 +11,9 @@ func hit(damage: int, attacker: Node3D = null):
 	
 
 func disable():
-	monitorable = false
+	set_deferred("monitorable", false)
 	
 
 func enable():
-	monitorable = true
+	set_deferred("monitorable", true)
 	
