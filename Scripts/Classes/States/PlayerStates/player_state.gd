@@ -4,6 +4,7 @@ class_name PlayerState extends Node
 signal transitioned(state_name: StringName)
 
 var player: Player
+var movement_component: MovementComponent
 
 func enter() -> void: pass
 func exit() -> void: pass

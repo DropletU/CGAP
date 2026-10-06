@@ -3,10 +3,11 @@ class_name PlayerStateMachine extends Node
 @export var initial_state: PlayerState
 var current_state: PlayerState
 
-func init(player: Player) -> void:
+func init(player: Player, movement_component: MovementComponent) -> void:
 	for child in get_children():
 		if child is PlayerState:
 			child.player = player
+			child.movement_component = movement_component
 			child.transitioned.connect(transition_to)
 	current_state = initial_state
 	current_state.enter()

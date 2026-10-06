@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b3qmb4yaestww" path="res://Scripts/States/PlayerStates/airborne_state.gd" id="6_3smsa"]
 [ext_resource type="Script" uid="uid://dwa6551d8sscl" path="res://Scripts/Components/health_component.gd" id="7_3smsa"]
 [ext_resource type="Script" uid="uid://bjok8qjnjb8t" path="res://Scripts/Components/hurtbox_component_3d.gd" id="8_8erm5"]
+[ext_resource type="Script" uid="uid://c703fae1us2et" path="res://Scripts/Components/movement_component.gd" id="9_f1ek2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bhunq"]
 radius = 0.7
@@ -23,11 +24,12 @@ height = 2.8
 radius = 0.7504883
 height = 2.9631348
 
-[node name="Player" type="CharacterBody3D" unique_id=691066388 node_paths=PackedStringArray("health_component", "hurtbox")]
+[node name="Player" type="CharacterBody3D" unique_id=691066388 node_paths=PackedStringArray("health_component", "hurtbox", "movement_component")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1920929e-07, 0)
 script = ExtResource("1_v0iea")
 health_component = NodePath("HealthComponent")
 hurtbox = NodePath("HurtboxComponent3D")
+movement_component = NodePath("MovementComponent")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1485767773]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92126465, 0)
@@ -75,3 +77,7 @@ metadata/_custom_type_script = "uid://bjok8qjnjb8t"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent3D" unique_id=143386554]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9281006, 0)
 shape = SubResource("CapsuleShape3D_riqys")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=4609399]
+script = ExtResource("9_f1ek2")
+metadata/_custom_type_script = "uid://c703fae1us2et"
