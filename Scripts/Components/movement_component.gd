@@ -1,8 +1,6 @@
 class_name MovementComponent extends Node
 
-func apply_horizontal_movement(entity: Entity3D, input_dir: Vector2, delta: float, speed_multi: float, rotation_radians: float = 0.0):
-	var direction := (entity.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	direction = direction.rotated(Vector3.UP, rotation_radians)
+func apply_horizontal_movement(entity: Entity3D, direction: Vector3, delta: float, speed_multi: float):
 	if direction:
 		entity.velocity.x = direction.x * entity.speed*delta * speed_multi
 		entity.velocity.z = direction.z * entity.speed*delta * speed_multi
