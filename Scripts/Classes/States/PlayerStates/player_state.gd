@@ -5,6 +5,7 @@ signal transitioned(state_name: StringName)
 
 var player: Player
 var movement_component: MovementComponent
+var camera: Node3D
 
 func enter() -> void: pass
 func exit() -> void: pass

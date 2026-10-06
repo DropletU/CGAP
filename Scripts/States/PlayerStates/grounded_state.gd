@@ -12,7 +12,7 @@ func physics_update(delta) -> void:
 	var speed_multi: = 1.0
 	if Input.is_action_pressed("sprint"):
 		speed_multi*=2
-	movement_component.apply_horizontal_movement(player, delta, speed_multi, player.camera.global_rotation.y)
+	movement_component.apply_horizontal_movement(player, delta, speed_multi, camera.global_rotation.y)
 	
 	if Input.is_action_just_pressed("jump"):
 		movement_component.apply_jump(player)
