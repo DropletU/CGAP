@@ -3,7 +3,7 @@ class_name InputComponent extends Node
 enum States { GAMEPLAY, UI, DISABLED }
 @export var state: States = States.GAMEPLAY
 var inputs_allowed: Dictionary = {
-	States.GAMEPLAY: [],
+	States.GAMEPLAY: ["forward", "back", "left", "right", "jump"],
 	States.UI: [],
 	States.DISABLED: []
 }
@@ -24,6 +24,18 @@ func is_action_just_pressed(action: StringName) -> bool:
 	if is_action_allowed(action):
 		return Input.is_action_just_pressed(action)
 	return false
+	
+
+func get_vector(negative_x: StringName, positive_x: StringName, negative_y: StringName, positive_y: StringName) -> Vector2:
+	if not is_action_allowed(negative_x):
+		return Vector2.ZERO
+	if not is_action_allowed(positive_x):
+		return Vector2.ZERO
+	if not is_action_allowed(negative_y):
+		return Vector2.ZERO
+	if not is_action_allowed(positive_y):
+		return Vector2.ZERO
+	return Input.get_vector(negative_x, positive_x, negative_y, positive_y)
 	
 
 func is_action_allowed(action: StringName) -> bool:

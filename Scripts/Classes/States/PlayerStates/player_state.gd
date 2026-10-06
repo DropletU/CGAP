@@ -4,6 +4,7 @@ class_name PlayerState extends Node
 signal transitioned(state_name: StringName)
 
 var player: Player
+var input: InputComponent
 var movement_component: MovementComponent
 var camera: Node3D
 
