@@ -8,6 +8,8 @@ func exit() -> void:
 	pass # Runs when exiting a state
 	
 
+
+
 func physics_update(delta) -> void:
 	var speed_multi: = 1.0
 	var input_dir: Vector2 = input.get_vector("left", "right", "forward", "back")

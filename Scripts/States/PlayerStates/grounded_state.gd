@@ -8,6 +8,11 @@ func exit() -> void:
 	pass # Runs when exiting a state
 	
 
+func unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("jump"):
+		player.movement_component.apply_jump(player)
+	
+
 func physics_update(delta) -> void:
 	var speed_multi: = 1.0
 	var input_dir: Vector2 = input.get_vector("left", "right", "forward", "back")
@@ -15,11 +20,7 @@ func physics_update(delta) -> void:
 	direction = direction.rotated(Vector3.UP, camera.global_rotation.y)
 	if input.is_action_active("sprint"):
 		speed_multi*=2
-	movement_component.apply_horizontal_movement(player, direction, delta, speed_multi)
-	
-	
-	if input.is_action_just_pressed("jump"):
-		movement_component.apply_jump(player)
+	player.movement_component.apply_horizontal_movement(player, direction, delta, speed_multi)
 	
 	if not player.is_on_floor():
 		transitioned.emit("Airborne")

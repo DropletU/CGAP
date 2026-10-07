@@ -9,6 +9,7 @@ func _ready() -> void:
 	state_machine.init(self, input, movement_component, camera)
 	input.unhandled_input.connect(unhandled_input)
 	
+	
 	# floor_snap_length was set to 0.21
 	# In the future, you should update this into
 	# a value that is more suited for the game.
