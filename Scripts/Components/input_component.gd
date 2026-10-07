@@ -3,7 +3,7 @@ class_name InputComponent extends Node
 enum States { GAMEPLAY, UI, DISABLED }
 @export var state: States = States.GAMEPLAY
 var inputs_allowed: Dictionary = {
-	States.GAMEPLAY: ["forward", "back", "left", "right", "jump"],
+	States.GAMEPLAY: ["forward", "back", "left", "right", "jump", "sprint", "wheel_up", "wheel_down", "toggle_mouse_capture", "test_key"],
 	States.UI: [],
 	States.DISABLED: []
 }
