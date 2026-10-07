@@ -15,6 +15,10 @@ func init(player: Player, input: InputComponent, movement_component: MovementCom
 	current_state.enter()
 	
 
+func unhandled_input(event: InputEvent):
+	current_state.unhandled_input(event)
+	
+
 func physics_update(delta: float) -> void:
 	current_state.physics_update(delta)
 	

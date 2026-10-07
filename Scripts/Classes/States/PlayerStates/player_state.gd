@@ -11,4 +11,6 @@ signal transitioned(state_name: StringName)
 func enter() -> void: pass
 func exit() -> void: pass
 @warning_ignore("unused_parameter")
+func unhandled_input(event: InputEvent) -> void: pass
+@warning_ignore("unused_parameter")
 func physics_update(delta: float) -> void: pass
