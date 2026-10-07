@@ -8,10 +8,18 @@ var inputs_allowed: Dictionary = {
 	States.DISABLED: []
 }
 
+signal unhandled_input(event: InputEvent)
+
 func _ready() -> void:
 	pass
 	# TODO: Make this method set values from the database to each array in
 	# [member inputs_allowed]
+	
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not is_action_allowed(event.as_text()):
+		return
+	unhandled_input.emit(event)
 	
 
 func is_action_active(action: StringName) -> bool:
