@@ -1,7 +1,6 @@
 class_name PlayerState extends Node
 
 var player: Player
-var input: InputComponent
 var movement_component: MovementComponent
 var camera: Node3D
 
