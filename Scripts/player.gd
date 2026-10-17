@@ -13,6 +13,15 @@ func _ready() -> void:
 	
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("test_key"):
+		# Input that can be used to test anything before implementing it
+		# into the state machine
+		var test_attack: PackedScene = load("res://Scenes/placeholders/placeholder_area_attack_3d.tscn")
+		var instance = test_attack.instantiate()
+		instance.rotation = camera.global_rotation
+		instance.position = camera.global_position
+		get_tree().current_scene.add_child(instance)
+		return
 	state_machine.unhandled_input(event)
 	
 
