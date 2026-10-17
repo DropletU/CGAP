@@ -5,7 +5,12 @@ class_name HitboxArea3D extends Area3D
 var collider: CollisionShape3D = null
 var attacker: Node3D = null
 
+
 @export var damage: int = 10
+@export_subgroup("can_hit", "can_hit")
+@export var can_hit_player: bool = false
+@export var can_hit_enemy: bool = true
+@export var can_hit_ally: bool = false
 
 func _ready() -> void:
 	for child in get_children():
@@ -16,6 +21,7 @@ func _ready() -> void:
 	collision_layer = 0
 	disable()
 	area_entered.connect(_on_area_entered)
+	_set_masks()
 	
 
 func enable():
@@ -29,4 +35,10 @@ func disable():
 func _on_area_entered(area: Area3D) -> void:
 	if area is HurtboxComponent3D:
 		area.hit(damage, attacker)
+	
+
+func _set_masks():
+	set_collision_mask_value(3, can_hit_player)
+	set_collision_mask_value(5, can_hit_enemy)
+	set_collision_mask_value(7, can_hit_ally)
 	
