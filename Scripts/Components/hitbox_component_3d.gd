@@ -19,7 +19,6 @@ func _ready() -> void:
 	assert(collider, str("HitboxComponent3D: ", self.get_path(), " has no child of type CollisionShape3D."))
 	
 	collision_layer = 0
-	disable()
 	area_entered.connect(_on_area_entered)
 	_set_masks()
 	
