@@ -45,7 +45,7 @@ script = ExtResource("2_cvnsp")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraComponent" unique_id=336532881]
 shape = SubResource("SphereShape3D_6t5aa")
-spring_length = 6.0
+spring_length = 0.0
 
 [node name="SpringPosition" type="Node3D" parent="CameraComponent/SpringArm3D" unique_id=1702915163]
 

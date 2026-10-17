@@ -3,6 +3,7 @@ extends Node3D
 @export var mouse_sensitivity = 0.005
 @export_range(-90.0, 0.0, 0.1, "radians_as_degrees") var min_vertical_angle = -PI/2
 @export_range(0.0, 90.0, 0.1, "radians_as_degrees") var max_vertical_angle = PI/4
+@export_range(0.0, 10.0, 0.1) var max_camera_distance: float = 0.0
 
 @onready var spring_arm = $SpringArm3D
 
@@ -24,7 +25,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		spring_arm.spring_length = max(spring_arm.spring_length, 0)
 	if event.is_action_pressed("wheel_down"):
 		spring_arm.spring_length += 1
-		spring_arm.spring_length = min(spring_arm.spring_length, 10)
+		spring_arm.spring_length = min(spring_arm.spring_length, max_camera_distance)
 	
 	if event.is_action_pressed("toggle_mouse_capture"):
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
