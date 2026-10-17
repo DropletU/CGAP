@@ -1,4 +1,4 @@
-class_name PlayerHitboxComponent3D extends HitboxComponent3D
+class_name PlayerHitboxArea3D extends HitboxArea3D
 
 func _ready() -> void:
 	super._ready()

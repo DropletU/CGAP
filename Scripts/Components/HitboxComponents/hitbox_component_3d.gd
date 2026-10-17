@@ -1,4 +1,6 @@
-class_name HitboxComponent3D extends Area3D
+class_name HitboxArea3D extends Area3D
+## An [Area3D] that detects [HurtboxComponent3D]'s
+## and hits them. 
 
 var collider: CollisionShape3D = null
 var attacker: Node3D = null
